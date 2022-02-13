@@ -1,0 +1,3 @@
+https://towardsdatascience.com/version-control-big-query-with-terraform-with-ci-cd-too-a4bbffb25ad9
+
+https://stackoverflow.com/questions/66172075/provisioning-bigquery-datasets-using-terraform/66174073
