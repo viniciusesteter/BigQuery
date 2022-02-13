@@ -7,7 +7,7 @@ on:
 jobs:
   deploy_schemas:
     runs-on: windows-latest
-    name: Deploy to BigQuery
+    name: Deploy para BigQuery
     steps:
       # To use this repository's private action,
       # you must check out the repository
@@ -16,7 +16,7 @@ jobs:
       - name: Login
         uses: azure/login@v1
         with: 
-          credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
+          creds: ${{ secrets.GOOGLE_CREDENTIALS }}
       - name: Sql action
         uses: azure/sql-action@v1
         with:
