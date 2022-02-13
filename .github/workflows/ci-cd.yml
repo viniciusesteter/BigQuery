@@ -7,6 +7,8 @@ on:
 jobs:
   deploy_schemas:
     runs-on: windows-latest
+    permissions:
+      issues: write 
     name: Deploy para BigQuery
     steps:
       - name: Checkout
