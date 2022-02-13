@@ -6,21 +6,19 @@ on:
 
 jobs:
   deploy_schemas:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     name: Deploy para BigQuery
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: 'Authenticate to Google Cloud'
-        uses: 'google-github-actions/auth@v0'
+      - name: 'Deploy to App Engine'
+        id: deploy
+        uses: google-github-actions/deploy-appengine@v0.2.0
         with:
-          credentials_json: /BigQuery/credible-skill-341215-7fb58650bff2.json
-      - name: Sql action
-        uses: azure/sql-action@v1
-        with:
-          project: "credible-skill-341215"
-          sql-file: ./sql_script.sql
-        env:
-          gcp_project: 'credible-skill-341215'
-          dataset_schema_directory: 'credible-skill-341215/dataset_name'
+          project_id: "credible-skill-341215"
+          deliverables: ./sql_script.sql
           credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
+          version: v1
+      - name: Teste
+        run: ./sql_script.sql
+
