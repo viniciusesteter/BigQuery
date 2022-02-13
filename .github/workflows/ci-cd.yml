@@ -21,8 +21,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.4
       - name: Deploy schemas to BigQuery
-        uses: jashparekh/bigquery-action@v3
+        uses: viniciusesteter/bigquery-action@v3
         env:
           gcp_project: 'credible-skill-341215'
-          dataset_schema_directory: 'credible-skill-341215/dataset_name'
+          dataset_schema_directory: 'credible-skill-341215/alunos'
           credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
