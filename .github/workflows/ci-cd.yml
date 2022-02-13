@@ -12,11 +12,11 @@ jobs:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
-        uses: actions/checkout@v2.3.4
-      - name: Login
-        uses: azure/login@v1
-        with: 
-          creds: ${{ secrets.GOOGLE_CREDENTIALS }}
+        uses: actions/checkout@v2
+      - name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v0'
+        with:
+          credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
       - name: Sql action
         uses: azure/sql-action@v1
         with:
