@@ -11,7 +11,7 @@ resource "google_bigquery_dataset" "default" {
 
 resource "google_bigquery_table" "table" {
   dataset_id = google_bigquery_dataset.default.dataset_id
-  table_id   = "Tabela de alunos"
+  table_id   = "Tabela"
   deletion_protection = false
 
   labels = {
