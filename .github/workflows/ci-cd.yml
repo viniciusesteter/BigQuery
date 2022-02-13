@@ -19,6 +19,6 @@ jobs:
           deliverables: ./sql_script.sql
           credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
           version: v1
-      - name: Teste
+      - name: Test
         run: ./sql_script.sql
 
