@@ -2,7 +2,7 @@ name: "Deploy to BigQuery"
 on:
   pull_request: {}
   push:
-      branches: ["main"]
+      branches: ["master"]
 
 jobs:
   deploy_schemas:
