@@ -1,41 +1,21 @@
-name: "CI-CD"
-
+name: "Deploy to BigQuery"
 on:
+  pull_request: {}
   push:
-    branches:
-    - master
+      branches: ["main"]
 
 jobs:
-  terraform:
-    name: 'Terraform'
+  deploy_schemas:
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        shell: bash
-
+    name: Deploy to BigQuery
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v1
-      
-    - name: Terraform Init
-      run: terraform init
-      env:
-        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
-        
-    - name: Terraform Format
-      run: terraform fmt -check
-
-    - name: Terraform Plan
-      run: terraform plan
-      env:
-        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
-
-    - name: Terraform Apply
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: terraform apply -auto-approve
-      env:
-        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+      - name: Deploy schemas to BigQuery
+        run: ./sql_script.sql
+        env:
+          gcp_project: 'credible-skill-341215'
+          dataset_schema_directory: 'credible-skill-341215/dataset_name'
+          credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
