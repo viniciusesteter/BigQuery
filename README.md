@@ -1,4 +1,4 @@
-# BigQuery no GCP com IaC em Terraform e criação de Pipelane CI/CD no GitHub Actions
+## BigQuery no GCP
 
 Projeto de criação de uma tabela no BigQuery do Google Plataform Cloud em IaC com Terraform.
 
