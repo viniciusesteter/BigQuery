@@ -1,5 +1,6 @@
 #!/bin/bash
-bq query --nouse_legacy_sql \
+gcloud config set project credible-skill-341215
+bq query --use_legacy_sql=false --destination_table=default.table \
           'INSERT INTO credible-skill-341215.Alunos.Tabela
           (ID,Nome,Telefone,Matricula,Status)
             values (1,"Maria",34267699,8888,"Inativo"), 
