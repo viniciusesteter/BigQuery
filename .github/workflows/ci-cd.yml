@@ -20,6 +20,5 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v0'
       - name: Deploy para o BigQuery
         run: 'echo "Rodar bash"'
-        shell: bash
-          file(./bq_script.bash)
+        shell: bash ./bq_script.bash
          
