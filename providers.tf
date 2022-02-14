@@ -6,7 +6,7 @@ terraform {
 }
 
 provider "google" {
-  credentials = file("credible-skill-341215-7fb58650bff2.json")
+  credentials = file("gcp_auth.json")
   project     = var.project_id
   region      = var.regiao
 }
