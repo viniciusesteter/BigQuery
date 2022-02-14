@@ -20,7 +20,7 @@ jobs:
         uses: jashparekh/bigquery-action@v3
         with:
     # Name of the GCP Project
-         gcp_project: "My First Project"
+         gcp_project: 'My First Project'
     # Path to the directory with schemas. Name of the directory should match with the dataset name in BigQuery
          dataset_schema_directory: ./sql_script.sql
     # Service account to autheticate with BigQuery
