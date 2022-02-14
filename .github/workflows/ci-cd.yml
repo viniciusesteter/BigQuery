@@ -15,9 +15,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Deploy Insert
-        uses: BeeMyDesk/cloud-datastore-action@v1.0.0
+        uses: ./
         with:
-          credentials: /credible-skill-341215-7fb58650bff2.json
+          credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
           project_id: "credible-skill-341215"
           action: save
           entity_kind: cloud-datastore-action-test
