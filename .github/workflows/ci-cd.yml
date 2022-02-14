@@ -26,11 +26,7 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v0'
       - name: Deploy para o BigQuery
         run: bq query --nouse_legacy_sql \
-          ''SELECT
+          'SELECT
               COUNT(*)
             FROM
-              `credible-skill-341215.Alunos.Tabela''
-        env:
-          project_id: "credible-skill-341215"
-          deliverables: ./table_schema.json
-          version: v1
+              credible-skill-341215.Alunos.Tabela'
