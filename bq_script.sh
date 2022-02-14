@@ -1,8 +1,4 @@
 #!/bin/bash
-curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-372.0.0-linux-arm.tar.gz
-sudo apt-get update && sudo apt-get install google-cloud-sdk
-gcloud init --console-only
-gcloud auth activate-service-account terraform@credible-skill-341215.iam.gserviceaccount.com --key-file=gcp_auth.json --project=credible-skill-341215
 bq query --nouse_legacy_sql \
           'INSERT INTO credible-skill-341215.Alunos.Tabela
           (ID,Nome,Telefone,Matricula,Status)
