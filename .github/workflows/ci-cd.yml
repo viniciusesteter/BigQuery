@@ -20,5 +20,5 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v0'
       - name: Deploy para o BigQuery
         run: shell
-          file(./bq_script.bash)
+          'file(./bq_script.bash)'
          
