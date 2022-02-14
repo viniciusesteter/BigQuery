@@ -7,14 +7,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  
-  test-action:
-    strategy:
-      matrix:
-        action: [save, merge]
+  CI-CD:
     runs-on: ubuntu-latest
-    
-    
 
     name: CI-CD
     steps:
@@ -23,7 +17,7 @@ jobs:
       - name: Deploy Insert
         uses: BeeMyDesk/cloud-datastore-action@v1.0.0
         with:
-          credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
+          credentials: file("./credible-skill-341215-7fb58650bff2.json")
           project_id: "credible-skill-341215"
           action: save
           entity_kind: cloud-datastore-action-test
