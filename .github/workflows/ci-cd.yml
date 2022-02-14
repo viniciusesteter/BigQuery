@@ -18,6 +18,6 @@ jobs:
            credentials_json: ${{ secrets.GOOGLE_CREDENTIALS }}
       - name: Set up Cloud SDK
         uses: 'google-github-actions/setup-gcloud@v0'
-      - name: Deploy
+      - name: Deploy para o BigQuery
         run: |
           sh ./bq_script.sh
