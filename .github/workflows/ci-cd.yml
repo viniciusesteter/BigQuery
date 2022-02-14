@@ -7,20 +7,23 @@ on:
   workflow_dispatch:
 
 jobs:
-  CI-CD:
+  CI:
     runs-on: ubuntu-latest
-
-    name: CI-CD
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Deploy Insert
-        uses: BeeMyDesk/cloud-datastore-action@v1.0.0
-        with:
-          credentials: file("./credible-skill-341215-7fb58650bff2.json")
-          project_id: "credible-skill-341215"
-          action: save
-          entity_kind: cloud-datastore-action-test
-          entity_name: cloud-datastore-action-test-${{ matrix.action }}
-          entity_data: 'file("./insert.json")'
 
+  CD:
+    needs: CI
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Deploy to App Engine'
+        id: deploy
+        uses: google-github-actions/deploy-appengine@v0.2.0
+        with:
+          project_id: "credible-skill-341215"
+          deliverables: .sql_script.sql
+          credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
+          version: v1
+      - name: Test
+        run: ./sql_script.sql
