@@ -18,5 +18,5 @@ jobs:
            credentials_json: ${{ secrets.GOOGLE_CREDENTIALS }}
       - name: Deploy para o BigQuery
         run: |
-          cp . ./gcp_auth.json
+          cp ./gcp_auth.json
           sh ./bq_script.sh
