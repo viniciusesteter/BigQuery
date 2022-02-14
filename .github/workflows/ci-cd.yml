@@ -17,7 +17,7 @@ jobs:
       - name: Deploy Insert
         uses: BeeMyDesk/cloud-datastore-action@v1.0.0
         with:
-          credentials: "./credible-skill-341215-7fb58650bff2.json"
+          credentials: ${{ secrets.TESTE }}
           project_id: "credible-skill-341215"
           action: save
           entity_kind: cloud-datastore-action-test
