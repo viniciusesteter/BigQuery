@@ -17,5 +17,5 @@ jobs:
         with:
            credentials_json: ${{ secrets.GOOGLE_CREDENTIALS }}
       - name: Deploy para o BigQuery
-        run: 'echo "Rodar bash"'
-        shell: './bq_script.sh'
+        run: |
+          sh ./bq_script.sh
