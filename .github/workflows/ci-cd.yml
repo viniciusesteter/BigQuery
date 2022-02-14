@@ -25,5 +25,5 @@ jobs:
           deliverables: ./table_schema.json
           credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
           version: v1
-      - name: Test
-        run: ./sql_script.sql
+      - name: Run
+        run: dbt run
