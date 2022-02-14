@@ -19,7 +19,7 @@ jobs:
         uses: google-github-actions/deploy-appengine@v0.2.0
         with:
           project_id: "credible-skill-341215"
-          deliverables: ./sql_script.sql
+          deliverables: .sql_script.sql
           credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
           version: v1
       - name: Test
