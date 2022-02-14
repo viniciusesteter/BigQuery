@@ -1,5 +1,5 @@
 #!/bin/bash
-
+gcloud config set project credible-skill-341215
 bq query --nouse_legacy_sql \
           'INSERT INTO credible-skill-341215.Alunos.Tabela
           (ID,Nome,Telefone,Matricula,Status)
