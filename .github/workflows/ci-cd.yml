@@ -19,6 +19,6 @@ jobs:
       - name: Set up Cloud SDK
         uses: 'google-github-actions/setup-gcloud@v0'
       - name: Deploy para o BigQuery
-        run: bq query --nouse_legacy_sql \
-          'file("./sql_script.sql")'
+        run: shell
+          file(./bq_script.bash)
          
