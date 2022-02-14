@@ -17,12 +17,11 @@ jobs:
     needs: CI
     runs-on: ubuntu-latest
     steps:
-      - name: 'Deploy to App Engine'
-        id: deploy
+      - name: Deploy para o BigQuery
         uses: google-github-actions/deploy-appengine@v0.2.0
         with:
           project_id: "credible-skill-341215"
-          deliverables: .sql_script.sql
+          deliverables: ./table_schema.json
           credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
           version: v1
       - name: Test
