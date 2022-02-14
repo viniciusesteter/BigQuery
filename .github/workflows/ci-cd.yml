@@ -13,17 +13,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+  CD:
+    needs: CI
+    runs-on: ubuntu-latest
+    steps:
       - name: Autenticar GCP
         uses: 'google-github-actions/auth@v0'
         with:
            credentials_json: ${{ secrets.GOOGLE_CREDENTIALS }}
       - name: Set up Cloud SDK
         uses: 'google-github-actions/setup-gcloud@v0'
-
-  CD:
-    needs: CI
-    runs-on: ubuntu-latest
-    steps:
       - name: Deploy para o BigQuery
         run: bq query --nouse_legacy_sql \
           'INSERT INTO `credible-skill-341215.Alunos.Tabela`(ID,Nome,Telefone,Matricula,Status)
