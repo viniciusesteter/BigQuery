@@ -12,15 +12,13 @@ jobs:
 
     name: CI-CD
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Deploy Insert
-        uses: ./
-        with:
-          credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
-          project_id: "credible-skill-341215"
-          action: save
-          entity_kind: cloud-datastore-action-test
-          entity_name: cloud-datastore-action-test-${{ matrix.action }}
-          entity_data: file("./insert.json")
+         - uses: actions/checkout@v2
+         - uses: ./
+           with:
+             credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
+             project_id: "credible-skill-341215"
+             action: save
+             entity_kind: cloud-datastore-action-test
+             entity_name: cloud-datastore-action-test-${{ matrix.action }}
+             entity_data: file("./insert.json")
 
