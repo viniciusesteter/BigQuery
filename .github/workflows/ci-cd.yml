@@ -6,7 +6,6 @@ on:
 
   workflow_dispatch:
 
-
 jobs:
   CI-CD:
     runs-on: ubuntu-latest
@@ -21,5 +20,5 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v0'
       - name: Deploy para o BigQuery
         run: bq query --nouse_legacy_sql \
-          file("./sql_script.sql")
+          'file("./sql_script.sql")'
          
