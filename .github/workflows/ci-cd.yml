@@ -25,8 +25,8 @@ jobs:
           file: .
           push: true
           tags: |
-            viniciusesteter/BigQuery:latest
-            viniciusesteter/BigQuery:${{ github.run_number }}
+            viniciusesteter/bigquery:latest
+            viniciusesteter/bigquery:${{ github.run_number }}
   CD:
     needs: [CI]
     runs-on: ubuntu-latest
