@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v1
         with:
           python-version: "3.7.x"
-      - run: pip install dbt
+      - run: pip3 install dbt-bigquery
       - run: dbt --version
       - run: 'echo "$KEYFILE" > ./table_schema.json'
         shell: bash
