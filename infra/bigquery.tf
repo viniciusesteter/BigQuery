@@ -13,7 +13,7 @@ resource "google_bigquery_table" "table" {
   dataset_id = google_bigquery_dataset.default.dataset_id
   table_id   = "Tabela"
   deletion_protection = false
-  schema = file("./table_schema.json")
+  schema = file("../schema_bd/table_schema.json")
   labels = {
     env = "terraform"
   }

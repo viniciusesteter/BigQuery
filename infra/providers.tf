@@ -6,7 +6,7 @@ terraform {
 }
 
 provider "google" {
-  credentials = file("gcp_auth.json")
+  credentials = file("../auth/gcp_auth.json")
   project     = var.project_id
   region      = var.regiao
 }
