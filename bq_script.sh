@@ -2,7 +2,7 @@
 curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-372.0.0-linux-arm.tar.gz
 sudo apt-get update && sudo apt-get install google-cloud-sdk
 gcloud init --console-only
-gcloud auth activate-service-account
+gcloud auth activate-service-account --key-file:gcp_auth.json
 bq query --use_legacy_sql=false --destination_table=Alunos.Tabela \
           'INSERT INTO credible-skill-341215.Alunos.Tabela
           (ID,Nome,Telefone,Matricula,Status)
