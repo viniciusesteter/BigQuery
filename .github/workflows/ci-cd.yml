@@ -16,8 +16,6 @@ jobs:
         uses: 'google-github-actions/auth@v0'
         with:
            credentials_json: ${{ secrets.GOOGLE_CREDENTIALS }}
-      - name: Set up Cloud SDK
-        uses: 'google-github-actions/setup-gcloud@v0'
       - name: Deploy para o BigQuery
         run: 'echo "Rodar bash"'
-        shell: bq_script.sh
+        shell: .bq_script.sh
