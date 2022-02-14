@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Deploy para o BigQuery
         run: ./sql_script.sql
-        with:
+        env:
           project_id: "credible-skill-341215"
           deliverables: ./table_schema.json
           credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
