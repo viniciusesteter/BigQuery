@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy para o BigQuery
-        uses: google-github-actions/deploy-appengine@v0.2.0
+
         with:
           project_id: "credible-skill-341215"
           deliverables: ./table_schema.json
