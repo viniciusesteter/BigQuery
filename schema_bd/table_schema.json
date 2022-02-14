@@ -1,32 +1,32 @@
 [
     {
       "name": "ID",
-      "type": "INTEGER",
-      "mode": "NULLABLE",
+      "type": "INT64",
+      "mode": "REQUIRED",
       "description": "ID do aluno"
     },
     {
       "name": "Nome",
       "type": "STRING",
-      "mode": "NULLABLE",
+      "mode": "REQUIRED",
       "description": "Nome do Aluno"
     },
     {
       "name": "Telefone",
-      "type": "INTEGER",
+      "type": "INT64",
       "mode": "NULLABLE",
       "description": "Telefone do aluno"
     },
     {
       "name": "Matricula",
-      "type": "INTEGER",
-      "mode": "NULLABLE",
+      "type": "INT64",
+      "mode": "REQUIRED",
       "description": "Número da matricula do aluno"
     },
     {
       "name": "Status",
       "type": "STRING",
-      "mode": "NULLABLE",
+      "mode": "REQUIRED",
       "description": "Se o aluno está ativado ou não"
     }
   ]
