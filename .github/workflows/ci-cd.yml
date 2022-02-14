@@ -7,18 +7,26 @@ on:
   workflow_dispatch:
 
 jobs:
-  CI-CD:
+  
+  test-action:
+    strategy:
+      matrix:
+        action: [save, merge]
     runs-on: ubuntu-latest
+    
+    
 
     name: CI-CD
     steps:
-         - uses: actions/checkout@v2
-         - uses: ./
-           with:
-             credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
-             project_id: "credible-skill-341215"
-             action: save
-             entity_kind: cloud-datastore-action-test
-             entity_name: cloud-datastore-action-test-${{ matrix.action }}
-             entity_data: file("./insert.json")
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Deploy Insert
+        uses: BeeMyDesk/cloud-datastore-action@v1.0.0
+        with:
+          credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
+          project_id: "credible-skill-341215"
+          action: save
+          entity_kind: cloud-datastore-action-test
+          entity_name: cloud-datastore-action-test-${{ matrix.action }}
+          entity_data: 'file("./insert.json")'
 
