@@ -4,7 +4,10 @@ on:
   push:
     branches: [ master ]
 
-  workflow_dispatch:
+env:
+  DBT_GOOGLE_PROJECT: your-gcp-project-id
+  DBT_GOOGLE_BIGQUERY_DATASET: bigquery-dataset-id
+  DBT_GOOGLE_BIGQUERY_KEYFILE: ./.gcloud/dbt-service-account.json
 
 jobs:
   CI:
@@ -17,12 +20,14 @@ jobs:
     needs: CI
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy para o BigQuery
-        run: ./sql_script.sql
-        env:
-          project_id: "credible-skill-341215"
-          deliverables: ./table_schema.json
-          credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
-          version: v1
-      - name: Test
-        run: ./sql_script.sql
+       - uses: actions/setup-python@v1
+         with:
+          python-version: "3.7.x"
+       - run: pip3 install dbt-bigquery
+       - run: dbt --version
+       - run: 'echo "$KEYFILE" > ./.gcloud/dbt-service-account.json'
+         shell: bash
+         env:
+          KEYFILE: ${{secrets.GOOGLE_CREDENTIALS}}
+       - run: dbt run
+       - run: dbt test
