@@ -13,44 +13,9 @@ resource "google_bigquery_table" "table" {
   dataset_id = google_bigquery_dataset.default.dataset_id
   table_id   = "Tabela"
   deletion_protection = false
-
+  schema = file("./table_schema.json")
   labels = {
     env = "terraform"
   }
-
-  schema = <<EOF
-[
-  {
-    "name": "ID",
-    "type": "INTEGER",
-    "mode": "NULLABLE",
-    "description": "ID do aluno"
-  },
-  {
-    "name": "Nome",
-    "type": "STRING",
-    "mode": "NULLABLE",
-    "description": "Nome do Aluno"
-  },
-  {
-    "name": "Telefone",
-    "type": "INTEGER",
-    "mode": "NULLABLE",
-    "description": "Telefone do aluno"
-  },
-  {
-    "name": "Matricula",
-    "type": "INTEGER",
-    "mode": "NULLABLE",
-    "description": "Número da matricula do aluno"
-  },
-  {
-    "name": "Status",
-    "type": "STRING",
-    "mode": "NULLABLE",
-    "description": "Se o aluno está ativado ou não"
-  }
-]
-EOF
 
 }
