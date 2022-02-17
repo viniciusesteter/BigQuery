@@ -1,2 +1,2 @@
 # ignore the file literally named foo[01].txt
-\[01\]auth.json
+gcp_auth.json
