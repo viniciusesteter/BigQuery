@@ -20,5 +20,4 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v0'
       - name: Deploy para o BigQuery
         run: |
-           chmod +x ./script/bq_script.sql
-           bq query --nouse_legacy_sql \ /script/bq_script.sql
+           bq load ./script/bq_script.sql
