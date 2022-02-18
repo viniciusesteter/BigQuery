@@ -20,4 +20,4 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v0'
       - name: Deploy para o BigQuery
         run: |
-           bq load credible-skill-341215.Alunos.Tabela ../script/bq_script.sql
+           bq load credible-skill-341215.Alunos.Tabela ./script/bq_script.sql
