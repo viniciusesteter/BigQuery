@@ -21,4 +21,4 @@ jobs:
       - name: Deploy para o BigQuery
         run: |
            chmod +x ./script/bq_script.sql
-           bq query --nouse_legacy_sql \  ./script/bq_script.sql
+           bq query --nouse_legacy_sql \  ../script/bq_script.sql
